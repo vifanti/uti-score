@@ -1,6 +1,12 @@
 import React, { useCallback } from 'react';
 
-import { ScrollView, StatusBar, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StatusBar,
+  View,
+} from 'react-native';
 import { useAuth } from '../../hooks/auth';
 
 import logoImg from '../../assets/logo-wareline-simples.png';
@@ -21,26 +27,32 @@ const SignIn: React.FC = () => {
   }, [signIn]);
 
   return (
-    <ScrollView
-      keyboardShouldPersistTaps="handled"
-      contentContainerStyle={{ flexGrow: 1 }}
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      enabled
     >
-      <Container>
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        <Image style={{ resizeMode: 'stretch' }} source={logoImg} />
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
+        <Container>
+          <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+          <Image style={{ resizeMode: 'stretch' }} source={logoImg} />
 
-        <View>
-          <Title>Faça seu logon</Title>
-        </View>
+          <View>
+            <Title>Faça seu logon</Title>
+          </View>
 
-        <Input name="email" icon="mail" placeholder="E-mail" />
-        <Input name="password" icon="lock" placeholder="Senha" />
+          <Input name="email" icon="mail" placeholder="E-mail" />
+          <Input name="password" icon="lock" placeholder="Senha" />
 
-        <ButtonContainer>
-          <Button onPress={handleSignIn}>Entrar</Button>
-        </ButtonContainer>
-      </Container>
-    </ScrollView>
+          <ButtonContainer>
+            <Button onPress={handleSignIn}>Entrar</Button>
+          </ButtonContainer>
+        </Container>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
