@@ -14,6 +14,7 @@ export const Image = styled.Image`
 `;
 
 export const ButtonContainer = styled.View`
+  margin-top: 20px;
   width: 100%;
-  height: 60px;
+  height: 68px;
 `;
