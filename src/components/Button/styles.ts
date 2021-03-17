@@ -47,7 +47,7 @@ export const ButtonText = styled.Text<Textprops>`
   padding: 0 2px;
   text-align: center;
   font-family: 'Roboto-Medium';
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
 
   ${props =>
