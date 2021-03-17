@@ -4,6 +4,7 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+  padding: 0 30px;
 `;
 
 export const Image = styled.Image`
@@ -13,6 +14,6 @@ export const Image = styled.Image`
 `;
 
 export const ButtonContainer = styled.View`
-  width: 90%;
+  width: 100%;
   height: 60px;
 `;

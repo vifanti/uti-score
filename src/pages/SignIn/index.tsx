@@ -25,8 +25,8 @@ const SignIn: React.FC = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <Image style={{ resizeMode: 'stretch' }} source={logoImg} />
 
-      <Input />
-      <Input />
+      <Input name="email" icon="mail" placeholder="E-mail" />
+      <Input name="password" icon="lock" placeholder="Senha" />
 
       <ButtonContainer>
         <Button onPress={handleSignIn}>Entrar</Button>
