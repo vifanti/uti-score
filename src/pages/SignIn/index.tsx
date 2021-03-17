@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { StatusBar } from 'react-native';
+import { ScrollView, StatusBar, View } from 'react-native';
 import { useAuth } from '../../hooks/auth';
 
 import logoImg from '../../assets/logo-wareline-simples.png';
@@ -8,7 +8,7 @@ import logoImg from '../../assets/logo-wareline-simples.png';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 
-import { Container, Image, ButtonContainer } from './styles';
+import { Container, Image, Title, ButtonContainer } from './styles';
 
 const SignIn: React.FC = () => {
   const { signIn } = useAuth();
@@ -21,17 +21,26 @@ const SignIn: React.FC = () => {
   }, [signIn]);
 
   return (
-    <Container>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <Image style={{ resizeMode: 'stretch' }} source={logoImg} />
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      contentContainerStyle={{ flexGrow: 1 }}
+    >
+      <Container>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+        <Image style={{ resizeMode: 'stretch' }} source={logoImg} />
 
-      <Input name="email" icon="mail" placeholder="E-mail" />
-      <Input name="password" icon="lock" placeholder="Senha" />
+        <View>
+          <Title>Faça seu logon</Title>
+        </View>
 
-      <ButtonContainer>
-        <Button onPress={handleSignIn}>Entrar</Button>
-      </ButtonContainer>
-    </Container>
+        <Input name="email" icon="mail" placeholder="E-mail" />
+        <Input name="password" icon="lock" placeholder="Senha" />
+
+        <ButtonContainer>
+          <Button onPress={handleSignIn}>Entrar</Button>
+        </ButtonContainer>
+      </Container>
+    </ScrollView>
   );
 };
 
